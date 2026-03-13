@@ -17,6 +17,11 @@ export default class ProductsController {
         })
     }
 
+    async show({ params, response }: HttpContext) {
+        const product = await Product.findOrFail(params.id)
+        return response.ok(product)
+    }
+
     async update({ params, request, response }: HttpContext) {
         const product = await Product.findOrFail(params.id)
         product.merge(request.only(['name, amount']))

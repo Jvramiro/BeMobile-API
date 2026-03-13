@@ -18,6 +18,11 @@ export default class UsersController {
         })
     }
 
+    async show({ params, response }: HttpContext) {
+        const user = await User.findOrFail(params.id)
+        return response.ok(user)
+    }
+
     async update({ params, request, response }: HttpContext) {
         const user = await User.findOrFail(params.id)
         const data = request.only(['fullName', 'email', 'role'])
