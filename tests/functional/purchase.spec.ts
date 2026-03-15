@@ -13,7 +13,7 @@ test.group('Purchase', (group) => {
             },
             {
                 fullName: 'Joao',
-                password: await hash.make('12345678'),
+                password: '12345678',
                 role: 'admin'
             }
         )

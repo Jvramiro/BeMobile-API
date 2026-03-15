@@ -5,14 +5,14 @@ test.group('Auth', () => {
     test('Should register and login successfully', async ({ client }) => {
 
         await client.post('/register').json({
-            fullName: 'Joao',
-            email: 'joao@bemobile.com',
+            fullName: 'user',
+            email: 'user@bemobile.com',
             password: '12345678',
             passwordConfirmation: '12345678'
         })
 
         const response = await client.post('/login').json({
-            email: 'joao@bemobile.com',
+            email: 'user@bemobile.com',
             password: '12345678'
         })
 
@@ -24,7 +24,7 @@ test.group('Auth', () => {
     test('Should return 400 when password is incorrect', async({ client }) => {
 
         const response = await client.post('/login').json({
-            email: 'joao@bemobile.com',
+            email: 'user@bemobile.com',
             password: 'wrong'
         })
 

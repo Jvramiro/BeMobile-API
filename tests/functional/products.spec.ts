@@ -11,7 +11,7 @@ test.group('Products', (group) => {
             },
             {
                 fullName: 'Joao',
-                password: await hash.make('12345678'),
+                password: '12345678',
                 role: 'admin'
             }
         )
@@ -22,7 +22,7 @@ test.group('Products', (group) => {
             email: 'joao@bemobile.com',
             password: '12345678'
         })
-
+        console.log('STATUS:', login.status(), 'BODY:', JSON.stringify(login.body()))
         return login.body().data.token
     }
 
